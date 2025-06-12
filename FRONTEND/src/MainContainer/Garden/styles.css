@@ -1,0 +1,47 @@
+.calorieContainer {
+    justify-self: center;
+    display: flex;
+    margin-top: 1.3em;
+    justify-content: center;
+    align-content: center;
+    background-color: #ECFAE5;
+    border-radius: 20px;
+    font-size: 2rem;
+    max-height: 5vh;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #83ad6f;
+    box-shadow: 5px 5px 5px green;
+}
+
+.calorieButton {
+    justify-self: center;
+    align-self: center;
+    margin-left: 5%;
+    color: #B0DB9C;
+    background-color: #DDF6D2;
+    color: #83ad6f;
+}
+
+.calorieButton:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 5px #B0DB9C;
+    transition: 0.3s;
+    background-color:  #B0DB9C;
+}
+
+.WelcomeMessage {
+    justify-self: center;
+    align-self: center;
+    white-space: nowrap;    
+
+}
+
+.Welcome {
+    display:inline;
+    white-space:nowrap;
+    justify-self: center;
+    align-self: center;
+    margin-right: 5%;
+}
+

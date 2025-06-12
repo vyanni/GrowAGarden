@@ -1,0 +1,59 @@
+.navContainer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #CAE8BD;
+    border: 3px #BBC3A4;
+    box-shadow: 5px 5px 5px #B0DB9C;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.buttonContainer {
+    position: absolute;
+    right: 10%;
+    border-radius: 10%;
+    border: 0px;
+    
+}
+
+.title {
+    color: white;
+}
+
+button {
+    height: fit-content;
+    width: fit-content;
+    border-radius: 10%;
+    margin-right: 10px;
+    border: 0px;
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.login {
+    background-color: #ECFAE5;
+}
+
+.login:hover {
+    transition: 0.3s;
+    background-color: #B0DB9C;
+    cursor: pointer;
+}
+.register {
+    background-color: #BBC3A4;
+    
+}
+
+.register:hover {
+    transition: 0.3s;
+    background-color: #B0DB9C;
+    cursor: pointer;
+}
