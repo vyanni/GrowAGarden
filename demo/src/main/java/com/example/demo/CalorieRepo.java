@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
-public interface HomePageRepo extends JpaRepository<UserAccount, String>
+public interface CalorieRepo extends JpaRepository<CalorieTable, String>
 {
-    HomePageRepo findByUsername(String username);
+    CalorieTable findByUsername(String username);    
 }
