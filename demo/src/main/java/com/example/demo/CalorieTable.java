@@ -9,6 +9,7 @@ public class CalorieTable{
 
     @Id
     private double idstatsbyday;
+    
     private String idusername;
     private double daynum;
     private double caloriecount;
@@ -20,7 +21,7 @@ public class CalorieTable{
     {
         idusername = UserName;
     }
-    public void dayCount(double Day)
+    public void setdayCount(double Day)
     {
         daynum = Day;
     }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.Optional;
+import java.time.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,32 +26,42 @@ public class HomePageController {
     private HomePageRepo homepageRepository;
 
     @Autowired
-    private CalorieTable caloriepageRepository;
+    private CalorieRepo caloriepageRepository;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    /*@GetMapping("/caloricCompliance")
+    //@GetMapping("/caloricCompliance")
     public List<String> getCalories() {
         String sql = "SELECT idusername FROM personstats";
         return jdbcTemplate.query(
             sql,
             (rs, rowNum) -> rs.getString("idusername")
         );
-    }*/
+    }
 
     @PostMapping("/accountregister")
     public UserAccount createUser(@RequestBody UserAccount newUser) {
-        //return homepageRepository.save(newUser);
-        UserAccount dummyUser = new UserAccount();
-        return dummyUser;
+        return homepageRepository.save(newUser);
+        //UserAccount dummyUser = new UserAccount();
+        //return dummyUser;
     }
 
-    /*@PostMapping("/loggingCalories")
-    public double logCalories(@PathVariable double dailyCalories) {
+    @PostMapping("/loggingCalories")
+    public double logCalories(@RequestBody LogCalories newLog) {
         CalorieTable newDay = new CalorieTable();
-        return caloriepageRepository.save(newDay);
-    }*/
+        newDay.setCalorieCount(newLog.getCalories());
+        newDay.setidUserName(newLog.getIdusername());
+        Instant instant = Instant.now();
+        newDay.setdayCount(instant.getEpochSecond());
+
+        return caloriepageRepository.save(newDay).getCalorieCount();
+    }
+    
+    //@GetMapping("/flowerReturn")
+    //public double getCalorieDay(@PathVariable String userName, @PathVariable) {
+      //  caloriepageRepository.findByUsername(userName);
+    //}
     
 
     @GetMapping("/logins")

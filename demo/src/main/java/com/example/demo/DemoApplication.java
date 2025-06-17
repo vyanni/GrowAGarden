@@ -21,7 +21,7 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) {
         System.out.println("---- idUsername column values ----");
-        //++++homePageController.getCalories().forEach(System.out::println);
+        homePageController.getCalories().forEach(System.out::println);
     }
 
 }
