@@ -10,7 +10,7 @@ public class UserAccount{
     @Id
     private String idusername;
     private String password;
-    private boolean gender;
+    private String gender;
     private double height;
     private double weight;
     private double caloriegoal;
@@ -29,7 +29,7 @@ public class UserAccount{
         height = newHeight;
     }
 
-    public void setgender(boolean newGender){
+    public void setgender(String newGender){
         gender = newGender;
     }
 
@@ -49,7 +49,7 @@ public class UserAccount{
         return password;
     }
 
-    public boolean getgender(){
+    public String getgender(){
         return gender;
     }
 

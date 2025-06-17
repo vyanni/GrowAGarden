@@ -30,8 +30,7 @@ public class HomePageController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    //@GetMapping("/caloricCompliance")
+    
     public List<String> getCalories() {
         String sql = "SELECT idusername FROM personstats";
         return jdbcTemplate.query(
@@ -58,12 +57,6 @@ public class HomePageController {
         return caloriepageRepository.save(newDay).getCalorieCount();
     }
     
-    //@GetMapping("/flowerReturn")
-    //public double getCalorieDay(@PathVariable String userName, @PathVariable) {
-      //  caloriepageRepository.findByUsername(userName);
-    //}
-    
-
     @GetMapping("/logins")
     public ResponseEntity<Boolean> loginCheck(@RequestBody LoginRequest newLogin) {
         Optional<UserAccount> potentialUser = homepageRepository.findById(newLogin.getUsername());

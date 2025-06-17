@@ -16,5 +16,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface HomePageRepo extends JpaRepository<UserAccount, String>
 {
-    HomePageRepo findByUsername(String username);
+    //HomePageRepo findByUsername(String username);
 }
