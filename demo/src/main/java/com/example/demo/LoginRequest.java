@@ -1,15 +1,30 @@
 package com.example.demo;
 
-public class LoginRequest {
+public class LoginRequest 
+{
     private String username;
     private String password;
 
-    // Constructors, getters, setters
-    public LoginRequest() {}
+    // Getter for username
+    public String getUsername()
+    {
+        return username;
+    }
 
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+    // Setter for username
+    public void setUsername(String username) 
+    {
+        this.username = username;
+    }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    // Getter for password
+    public String getPassword() 
+    {
+        return password;
+    }
+    // Setter for password
+    public void setPassword(String password) 
+    {
+        this.password = password;
+    }
 }

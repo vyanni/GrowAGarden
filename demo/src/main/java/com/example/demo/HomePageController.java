@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class HomePageController {
 
@@ -42,8 +43,6 @@ public class HomePageController {
     @PostMapping("/accountregister")
     public UserAccount createUser(@RequestBody UserAccount newUser) {
         return homepageRepository.save(newUser);
-        //UserAccount dummyUser = new UserAccount();
-        //return dummyUser;
     }
 
     @PostMapping("/loggingCalories")
@@ -57,23 +56,32 @@ public class HomePageController {
         return caloriepageRepository.save(newDay).getCalorieCount();
     }
     
-    @GetMapping("/logins")
-    public ResponseEntity<Boolean> loginCheck(@RequestBody LoginRequest newLogin) {
+    @PostMapping("/logins")
+    public ResponseEntity<?> loginCheck(@RequestBody LoginRequest newLogin) {
         Optional<UserAccount> potentialUser = homepageRepository.findById(newLogin.getUsername());
 
         if (potentialUser.isPresent()) {
-            UserAccount passwordCheck = potentialUser.get();
-            if(passwordCheck.getpassWord().equals(newLogin.getPassword())){
-                return ResponseEntity.ok(true);
-            }else{
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+            UserAccount user = potentialUser.get();
+            if (user.getpassWord().equals(newLogin.getPassword())) 
+            {
+                // Create a DTO with only the safe user info you want to return
+                LoginResponse response = new LoginResponse
+                (
+                    user.getgender(),
+                    user.getWeight(),
+                    user.getHeight(),
+                    user.getCaloriegoal()
+                );
+                return ResponseEntity.ok(response);
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Wrong password");
             }
-        }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(false);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
     }
 
-    @GetMapping("/getCaloricgoal")
+    @GetMapping("/getCaloricgoal/{loginUsername}")
     public double getCaloricgoal(@PathVariable String loginUsername)
     {
         UserAccount loggedUser = homepageRepository.findById(loginUsername).get();
