@@ -16,5 +16,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface CalorieRepo extends JpaRepository<CalorieTable, Double>
 {
-    //CalorieTable findByUsername(String username);    
+    int countByidusername(String idusername);    
 }

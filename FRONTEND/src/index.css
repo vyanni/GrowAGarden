@@ -1,5 +1,27 @@
 body {
   background-color: #DBA979;
   overflow: hidden;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-family: "Stardew";
+}
+
+:root {
+  --scale: 2;
+  --tile-size: calc(16px * var(--scale));
+}
+
+@font-face {
+  font-family: "Stardew";
+  src: url('assets/Stardew_Valley.ttf');
+}
+
+button {
+  font-family: "Stardew";
+}
+
+p {
+  padding: 0;
+  margin: 0;
 }
 

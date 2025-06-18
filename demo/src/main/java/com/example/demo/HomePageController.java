@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
-public class HomePageController {
+public class HomePageController 
+{
 
     @Autowired
     private HomePageRepo homepageRepository;
@@ -40,25 +40,36 @@ public class HomePageController {
         );
     }
 
-    @PostMapping("/api/register")
-    public ResponseEntity<String> register(@RequestBody UserAccount user) {
-        if (UserAccount.existsById(user.getIdusername())) 
-        {
+    @PostMapping("/register")
+    public ResponseEntity<String> registerUser(@RequestBody UserAccount newUser) 
+    {
+        if (newUser.getuserName() == null) {
+        return ResponseEntity.badRequest().body("Username cannot be null");
+    }
+    
+        if (homepageRepository.existsById(newUser.getuserName())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already taken");
         }
-        userAccountRepo.save(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Registered successfully");
+        else
+        {
+            homepageRepository.save(newUser);
+            return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully");
+        }
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/loggingCalories")
-    public double logCalories(@RequestBody LogCalories newLog) {
+    public int logCalories(@RequestBody LogCalories newLog) {
         CalorieTable newDay = new CalorieTable();
         newDay.setCalorieCount(newLog.getCalories());
         newDay.setidUserName(newLog.getIdusername());
         Instant instant = Instant.now();
         newDay.setdayCount(instant.getEpochSecond());
+        
+        caloriepageRepository.save(newDay);
 
-        return caloriepageRepository.save(newDay).getCalorieCount();
+        int userCount = caloriepageRepository.countByidusername(newLog.getIdusername());
+        return userCount;
     }
     
     @PostMapping("/logins")
@@ -84,19 +95,5 @@ public class HomePageController {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
-    }
-
-    @GetMapping("/getCaloricgoal/{loginUsername}")
-    public double getCaloricgoal(@PathVariable String loginUsername)
-    {
-        UserAccount loggedUser = homepageRepository.findById(loginUsername).get();
-        return loggedUser.getCaloriegoal();
-    }
-    
-    @GetMapping("/getDayNum")
-    public double getDayNum (@PathVariable double Day)
-    {
-        double dummy = 1;
-        return dummy;
     }
 }

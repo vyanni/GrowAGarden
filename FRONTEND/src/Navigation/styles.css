@@ -1,45 +1,74 @@
 .navContainer {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #CAE8BD;
-    border: 3px #BBC3A4;
-    box-shadow: 5px 5px 5px #B0DB9C;
-    border-radius: 100px;
+    position: relative;
+    z-index: 100;
+    background-image: url("../assets/StardewGrass.png");
+    width: 100vw;
+    height: calc(3 * var(--tile-size));
+    overflow: hidden;
+    padding: 0 0 0 0;
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 4px solid black;
 }
+
+.HelpButton {
+    position: absolute;
+    background-color: #FBE5B4;
+    color: #945A2B;
+    border: 4px solid #945A2B;
+    border-radius: 50%;
+    font-size: 4em;
+    left: 0;
+    margin-left: 2%;
+}
+
+.HelpButton:hover {
+    color: #BA9A70;
+}
+
 
 .buttonContainer {
     position: absolute;
-    right: 10%;
+    padding: 0 0 0 0;
+    left: 90%;
     border-radius: 10%;
     border: 0px;
     
 }
 
+.titleHolder {
+    background-image: url('../assets/WoodenButton.png');
+    padding: 10%;
+    background-position: center;
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+
+}
+
 .title {
-    color: white;
+    left: 50%;
+    top: 50%;
+    font-size: calc(0.75 * var(--tile-size));
+    color: black;
+    padding: 0 0 0 0;
+    margin: 0;
 }
 
 button {
     height: fit-content;
     width: fit-content;
-    border-radius: 10%;
     margin-right: 10px;
     border: 0px;
     color: black;
     font-size: 1.5rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .login {
     background-color: #ECFAE5;
+    border: 4px solid black;
 }
 
 .login:hover {
@@ -49,6 +78,7 @@ button {
 }
 .register {
     background-color: #BBC3A4;
+    border: 4px solid black;
     
 }
 

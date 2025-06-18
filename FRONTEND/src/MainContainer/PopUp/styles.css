@@ -1,0 +1,97 @@
+.LoginPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 101;
+}
+
+.LoginPopupInner {
+    position: relative;
+    height: 70vh;
+    aspect-ratio: 1/1;
+}
+
+.ScrollImg {
+    position: absolute;
+    z-index: 101;
+    border: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70vh;
+    aspect-ratio: 8/8;
+}
+
+.LoginContent {
+    position: relative;
+    box-sizing: border-box;
+    padding: 10%;
+    height: 80%;
+    width: 80%;
+    z-index: 102;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.XButton {
+ position: absolute;
+ top: 20%;
+ left: 88%;
+ transform: translate(-50%, -50%);
+ color: rgb(126, 77, 38);
+ background-color: transparent;
+ font-size: 4em;
+}
+
+.FormTitle {
+    font-size: 4em;
+    text-align: center;
+    color: #74431B;
+}
+
+.FormInput {
+    width: 100%;
+    height: 13%;
+    font-family: "Stardew";
+    background-color: #E3A757;
+    color: #74431B;
+    border: none;
+    font-size: 2em;
+}
+
+.FormHeading {
+    padding-top: 5%;
+    font-size: 1.5em;
+    color: #74431B;
+    margin-bottom: 5px;
+}
+
+.XButton:hover {
+    color: rgb(162, 127, 97);
+    cursor: pointer;
+}
+
+.SubmitButton {
+    position: fixed;
+    left: 50%;
+    top: 82%;
+    transform: translate(-50%, -50%);
+    color: black;
+    border: 4px solid rgb(148, 90, 43);
+    background-color: burlywood;
+}
+
+.SubmitButton:hover {
+    cursor: pointer;
+    background-color: rgb(186, 154, 112);
+}
+
+.InvalidLogin {
+    color: red;
+}

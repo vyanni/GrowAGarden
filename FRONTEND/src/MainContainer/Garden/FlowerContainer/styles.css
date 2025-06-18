@@ -1,36 +1,38 @@
 .FlowerContainer {
     border-radius: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    margin-top: 2em;
-    justify-content: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1.5vw;
     padding-left: 10%;
     padding-right: 10%;
 }
 
 .FlowerBox {
-    background-color: #ECCA9C;
+    background-image: url('../../../assets/FlowerTile.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
     display: flex;  
-    flex-direction: column;
-    border-radius: 20px;
-    margin: 0.5%;
-    width: 11%;
-    height: 11%;
-    aspect-ratio: 1 / 1;
+    flex-direction: c;
+    width: 100%;
     justify-content: center;
     align-content: center;
     align-items: center;
     justify-items: center;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
 }
 
 
 .flower {
   position: relative;
-  padding-top: 5%;
-  width: 60%;
-  aspect-ratio: 1 / 1;
-  margin-top: 15%;
+  top: -25%;
+  aspect-ratio: 1/1;
+  height: 60%;
 }
 
 
@@ -39,7 +41,6 @@
 .flowerLayer1,
 .flowerCenter {
   position: absolute;
-  border-radius: 30px;
   aspect-ratio: 1 / 1;
   top: 50%;
   left: 50%;
@@ -47,34 +48,52 @@
 }
 
 .flowerLayer3 {
-  width: 90%;
-  height: 90%;
+  border: 4px solid black;
+  width: 70%;
+  height: 70%;
   background-color:#ffdddd;
   z-index: 1;
 }
 
 .flowerLayer2 {
-  width: 70%;
-  height: 70%;
+  width: 50%;
+  height: 50%;
   background-color: #ffbbc2;
   z-index: 2;
 }
 
 .flowerLayer1 {
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
   background-color: #f6829f;
   z-index: 3;
 }
 
 .flowerCenter { 
-  width: 25%;
-  height: 25%;
+  width: 10%;
+  height: 10%;
   background-color: rgb(255, 183, 0);
   z-index: 4;
 }
 
+.FlowerStem {
+  position: absolute;
+  background-color: green;
+  width: 10%;
+  height: 105%;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid black;
+}
+
 .date {
+    position: absolute;
+    white-space: nowrap;
+    top: 130%;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 1000;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1em;
 }
