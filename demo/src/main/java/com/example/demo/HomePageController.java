@@ -40,9 +40,14 @@ public class HomePageController {
         );
     }
 
-    @PostMapping("/accountregister")
-    public UserAccount createUser(@RequestBody UserAccount newUser) {
-        return homepageRepository.save(newUser);
+    @PostMapping("/api/register")
+    public ResponseEntity<String> register(@RequestBody UserAccount user) {
+        if (UserAccount.existsById(user.getIdusername())) 
+        {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already taken");
+        }
+        userAccountRepo.save(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Registered successfully");
     }
 
     @PostMapping("/loggingCalories")
