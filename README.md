@@ -22,8 +22,8 @@ Based on their caloric goal and intake, a flower will grow in the garden. This p
 - Access flower page
 
 ### API Endpoints
-- `POST /Register` - registers user initial data such
-- GET/login - gets user information
+- `POST /Register` - registers user initial data such as name, weight, age, gender, etc
+- 'GET/login' - gets user information needed to display on the UI, or for any calculations needed
 
 ### Technologies Used
 - Java 21
